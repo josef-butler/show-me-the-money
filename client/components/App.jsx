@@ -2,12 +2,17 @@ import React from "react"
 import { HashRouter as Router, Route, Link } from "react-router-dom"
 import { connect } from "react-redux"
 
-import Login from "./Login"
-import Register from "./Register"
-import Nav from "./Nav"
-import Meeting from "./Meeting"
-import History from "./History"
-import { checkAuth } from "../actions/auth"
+
+import Dashboard from './Dashboard'
+import Login from './Login'
+import Register from './Register'
+import Nav from './Nav'
+import Meeting from './Meeting'
+import History from './History'
+import CreateMeeting from './CreateMeeting'
+import Graph from './Graph'
+
+import { checkAuth } from '../actions/auth'
 
 export class App extends React.Component {
   componentDidMount() {
@@ -38,6 +43,8 @@ export class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/meeting" component={Meeting} />
             <Route path="/history" component={History} />
+            <Route path="/create" component={CreateMeeting} />
+            <Route path="/graph" component={Graph} />
           </div>
         </div>
       </Router>

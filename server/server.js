@@ -10,7 +10,7 @@ server.use(express.json())
 server.use(express.static('public'))
 
 server.use('/api/v1', authRoutes)
- server.use('/api/v1/users', users)
- server.use('/api/v1/meetings', meetings)
+server.use('/api/v1/users', users)
+server.use('/api/v1/meetings', meetings)
 
 module.exports = server
