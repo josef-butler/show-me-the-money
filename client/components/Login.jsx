@@ -15,7 +15,7 @@ class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let {username, password} = this.state
-    const confirmSuccess = () => { this.props.history.push('/') }
+    const confirmSuccess = () => { this.props.history.push('/dashboard') }
     this.props.dispatch(loginUser({username, password}, confirmSuccess))
   }
   render() {
