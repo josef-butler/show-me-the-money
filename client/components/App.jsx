@@ -2,6 +2,7 @@
 import React from 'react'
 import {HashRouter as Router, Route, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {checkAuth} from '../actions/auth'
 
 
 import Dashboard from './Dashboard'
@@ -41,7 +42,7 @@ export class App extends React.Component {
               <Route exact path="/" component={Login} />
 
             )}
-            <Route path="/create" component={CreateMeeting}/>
+
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
