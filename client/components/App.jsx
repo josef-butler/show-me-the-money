@@ -2,7 +2,6 @@
 import React from 'react'
 import {HashRouter as Router, Route, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import { checkAuth } from '../actions/auth'
 
 
 import Dashboard from './Dashboard'
@@ -11,8 +10,8 @@ import Register from './Register'
 import Nav from './Nav'
 import Meeting from './Meeting'
 import History from './History'
-import Dashboard from './Dashboard'
 import CreateMeeting from './CreateMeeting'
+import Graph from './Graph'
 
 
 import { checkAuth } from '../actions/auth'
@@ -41,7 +40,7 @@ export class App extends React.Component {
             {!auth.isAuthenticated && (
               <Route exact path="/" component={Login} />
 
-            }
+            )}
             <Route path="/create" component={CreateMeeting}/>
 
             <Route path="/login" component={Login} />
