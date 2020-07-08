@@ -7,4 +7,10 @@ function Meeting (props) {
   </div>
 }
 
-export default connect()(Meeting)
+function mapStateToProps(globalState) {
+  return {
+      toDos: globalState.toDos,
+  }
+}
+
+export default connect(mapStateToProps)(Meeting)
