@@ -2,7 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { Chart } from 'react-charts'
 
-function Graph() {
+ 
+
+function Graph(props) {
+    
     const data = React.useMemo(
       () => [
         {
@@ -12,6 +15,7 @@ function Graph() {
       ],
       []
     )
+    
     const getLabel = React.useCallback(series => series.specialLabel, [])
     const axes = React.useMemo(
       () => [
@@ -22,12 +26,12 @@ function Graph() {
     )
    
     return (
+        
       <div
         style={{
           width: '400px',
           height: '300px'
-        }}
-      > 
+        }}> 
         <div className="lefttitle">Cost</div>
         <Chart data={data} axes={axes} getLabel={getLabel}/>
         <div className="bottomtitle">Time</div>
@@ -35,4 +39,6 @@ function Graph() {
       </div>
     )
   }
-export default connect()(Graph)
+
+
+export default Graph
