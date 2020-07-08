@@ -2,10 +2,6 @@ import React from 'react'
 import {HashRouter as Redirect, Router, Route, Link} from 'react-router-dom'
 
 const MeetingEntry = (props) => {
-    function handleClick() {
-
-    }
-
     return (
         <tr>
             <td>{(new Date(props.meeting.time)).toLocaleDateString()}</td>
