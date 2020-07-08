@@ -5,26 +5,6 @@ const initialState = {
     timeElapsed: 0,
 }
 
-// const attendees = [{
-//   name: 'Lawrence',
-//   hourly: 24,
-// }, {
-//   name: 'Gilbert',
-//   hourly: 28.20,
-// }, {
-//   name: 'Ruth',
-//   hourly: 30.60,
-// }]
-
-// function cpsCalc() {
-//   let cph = 0
-//   attendees.map((element) => {
-//     cph += element.hourly
-//   })
-//   console.log(cph)
-// }
-
-
 function reducer(state = initialState, action) {
     switch (action.type) {
       case TICK_ONE_SECOND:
