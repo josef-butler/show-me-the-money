@@ -23,7 +23,7 @@ class CreateMeeting extends React.Component {
     cpsCalc = () => {
     let cph = 0
     this.state.attendees.map((element) => {
-      cph += element.hourlyWage
+      cph += Number(element.hourlyWage)
     })
     return cph/3600
   }
