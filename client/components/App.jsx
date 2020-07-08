@@ -8,6 +8,7 @@ import Nav from './Nav'
 import Meeting from './Meeting'
 import History from './History'
 import { checkAuth } from '../actions/auth'
+import Graph from './Graph'
 
 export class App extends React.Component {
   componentDidMount() {
@@ -18,7 +19,9 @@ export class App extends React.Component {
   render() {
     const {auth} = this.props
     return (
+      
       <Router>
+        <Graph/>
         <div className="container has-text-centered">
 
           <div className="hero is-small is-primary">
