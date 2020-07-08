@@ -6,12 +6,10 @@ const db = require('../../db/meetings')
 
 
 router.get("/", (req, res) => {
-    console.log("getmeeting history recived ", req.body)
-    db.getMeetingHistory(req.body)
-    .then(data=>{
-        console.log(data)
-        res.json( {data})
-        
+    console.log("getmeeting history request recived from client")
+    db.getMeetingHistory()
+    .then( data =>{
+        res.json(data) 
     })
     .catch(err => {
         res.status(500).send( "it broke :/" )
