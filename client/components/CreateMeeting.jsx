@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Redirect} from "react-router-dom"
 import {addStaticData} from '../actions/staticActions'
 
 let arr = []
@@ -10,6 +11,7 @@ class CreateMeeting extends React.Component {
         name: '',
         hourlyWage: '',
         attendees: [],
+        hasSubmitted:false
     }
 
     handleChange = (event) => {
@@ -36,7 +38,8 @@ class CreateMeeting extends React.Component {
         event.preventDefault()
         console.log('hello?')
         this.props.dispatch(addStaticData(obj))
-        
+        this.setState({hasSubmitted:true})
+
     }
 
     handleAdd = (event) => {
@@ -81,6 +84,7 @@ class CreateMeeting extends React.Component {
                     <input type="submit" onClick={this.handleSumbit}></input>
 
                 </form>
+                {this.state.hasSubmitted && <Redirect to="/meeting"/>}
             </>
         )
     }
