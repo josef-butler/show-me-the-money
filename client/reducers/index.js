@@ -1,11 +1,13 @@
 import { combineReducers } from "redux"
 
 import auth from './auth'
-import dynamicMeeting from './dynamicMeeting'
+import dynamic from './dynamicMeeting'
 import meetings from "./meetings"
+import staticReducer from './Static'
 
 export default combineReducers({
   auth,
-  dynamicMeeting,
+  dynamic,
   meetings,
+  staticReducer
 })
