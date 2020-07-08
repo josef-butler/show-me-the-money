@@ -22,9 +22,14 @@ function getUserByUsername (username, db = connection) {
     .where('username', username)
     .first()
 }
+function getUsers (db = connection) {
+  return db('users')
+      .select()
+}
 
 module.exports = {
   createUser,
   userExists,
-  getUserByUsername
+  getUserByUsername,
+  getUsers,
 }
