@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-class Dashboard extends React.Components {
+class Dashboard extends React.Component {
 
     handleClick = (e) => {
         if (e.target.name == 'create') {
