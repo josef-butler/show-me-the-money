@@ -1,27 +1,37 @@
 // Attendees, Meeting Name, Start Time, $ per Second
-import ADD_STATE from '../actions/staticActions'
+import {ADD_STATE} from '../actions/staticActions'
+// import ADD_ATTENDEE from '../actions/staticActions'
 
 
-
-initialState = {
+let initialState = {
     attendees: [],
     meetingName: "",
-    startTime: new Date().toLocaleString(),
+    startTime: "",
     costPerSecond: "0.0"
 }
+  
+// function cpsCalc() {
+//     let cph = 0
+//     attendees.map((element) => {
+//       cph += element.hourly
+//     })
+//     return cph/3600
+//   }
 
 const reducer = (state = initialState, action) => {
+    console.log("reducer", action)
     switch (action.type) {
         // case ADD_MTG_NAME:
         //     return [...state, action.meetingName]
-        // case ADD_ATTENDEES:
-        //     return [...state, action.attendees]
+        // case ADD_ATTENDEE:
+        //     return [...state, state.attendees.push(action.attendee)]
         // case ADD_START_TIME:
         //     return [...state, action.startTime]
         // case ADD_COST_PER_SECOND:
         //     return [...state, action.costPerSecond]
         case ADD_STATE:
-            return [...action]
+            console.log('here', action)
+            return action.data
         default:
             return state
     }
