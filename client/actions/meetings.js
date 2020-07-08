@@ -9,14 +9,14 @@ function receiveMeetings(meetings) {
   }
 }
 
-export function fetchMeetings() {
+export function getMeetings() {
   return (dispatch) => {
     apiGetMeetings()
       .then((meetings) => {
         dispatch(receiveMeetings(meetings))
       })
       .catch((err) => {
-        console.log("Something went wrong with fetchMeetings action")
+        console.log("Error on getMeetings in /actions")
       })
   }
 }

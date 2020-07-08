@@ -5,13 +5,16 @@ const getAuthorizationHeader = () => ({
   Authorization: `Bearer ${getEncodedToken()}`,
 })
 
+const rootUrl = '/api/meetings'
 const acceptJsonHeader = { Accept: "application/json" }
 
 export function getMeetings() {
   return request
-    .get("/api/meetings")
+    .get(rootUrl)
+    .set(acceptJsonHeader)
+    .set(getAuthorizationHeader)
     .then((res) => res.body)
     .catch((err) =>
-      console.log("Something went wrong on receiveMeetings api call")
+      console.log("Error on getMeetings in /apis")
     )
 }
