@@ -36,6 +36,7 @@ export class App extends React.Component {
             }
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path='/dashboard' component={Dashboard} />
             <Route path="/meeting" component={Meeting} />
             <Route path="/history" component={History} />
           </div>
