@@ -19,7 +19,6 @@ let initialState = {
 //   }
 
 const reducer = (state = initialState, action) => {
-    console.log("reducer", action)
     switch (action.type) {
         // case ADD_MTG_NAME:
         //     return [...state, action.meetingName]
