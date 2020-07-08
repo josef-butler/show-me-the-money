@@ -121,6 +121,7 @@ As a user:
   | id | Integer |
   | meeting_name | String |
   | time | Timestamp |
+  | duration | integer |
   | attendees | integer |
   | cost | Decimal |
 
