@@ -23,9 +23,6 @@ class Meeting extends React.Component {
       cost:this.props.dynamic.currentTotal,
     }
     saveMeeting(meetingData)
-//redirect
-//sedn to db
-//clear globalState -- reset static data
   }
 
   timer = () => {
