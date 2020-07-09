@@ -3,7 +3,7 @@ const router = express.Router()
 
 const db = require('../../db/meetings')
 
-
+//localhost:3000/api/v1/meetings/
 
 router.get("/", (req, res) => {
     console.log("getmeeting history recived ", req.body)
@@ -48,7 +48,19 @@ router.post("/", (req, res) => {
     })
 })
 
-
+router.get("/all", (req, res) => {
+    console.log("get All Meetings recived ")
+    db.getAllMeetings()
+    .then(data=>{
+        console.log(data)
+        res.json({data})
+        
+    })
+    .catch(err => {
+        res.status(500).send( "it broke :/" )
+        console.log(err)
+    })
+})
 module.exports = router
 
 

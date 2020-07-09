@@ -10,13 +10,13 @@ function Graph(props) {
       () => [
         {
           label: 'Series 1',
-          data: [{ x: 1, y: 10 }, { x: 2, y: 12 }, { x: 3, y: 10 }, { x: 4, y: 15 }, { x: 5, y: 8 }, { x: 10, y: 4 }]
+          data: props.data
         },
       ],
       []
     )
     
-    const getLabel = React.useCallback(series => series.specialLabel, [])
+   
     const axes = React.useMemo(
       () => [
         { primary: true, type: 'linear', position: 'bottom' },
@@ -32,8 +32,10 @@ function Graph(props) {
           width: '400px',
           height: '300px'
         }}> 
+        {console.log(props.data)}
         <div className="lefttitle">Cost</div>
-        <Chart data={data} axes={axes} getLabel={getLabel}/>
+        
+        <Chart data={data} axes={axes} />
         <div className="bottomtitle">Time</div>
       
       </div>

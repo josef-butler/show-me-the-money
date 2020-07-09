@@ -8,7 +8,9 @@ import Nav from './Nav'
 import Meeting from './Meeting'
 import History from './History'
 import { checkAuth } from '../actions/auth'
-import Graph from './Graph'
+import GraphWrap from './GraphWrap'
+
+
 
 export class App extends React.Component {
   componentDidMount() {
@@ -21,7 +23,7 @@ export class App extends React.Component {
     return (
       
       <Router>
-        <Graph/>
+        
         <div className="container has-text-centered">
 
           <div className="hero is-small is-primary">
@@ -32,14 +34,14 @@ export class App extends React.Component {
               <Nav />
             </div>
           </div>
-
+          <GraphWrap/>
           <div className=''>
             {!auth.isAuthenticated &&
               <Route exact path="/" component={Login} />
             }
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path='/dashboard' component={Dashboard} />
+           {/* <Route path='/dashboard' component={Dashboard} /> */}
             <Route path="/meeting" component={Meeting} />
             <Route path="/history" component={History} />
           </div>
