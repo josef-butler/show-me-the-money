@@ -1,6 +1,5 @@
 const testEnv = require ('../setup-db')
 const db = require ('../../../server/db/meetings')
-const { test } = require('../../../knexfile')
 
 let testDb  = null
 
@@ -27,30 +26,3 @@ test('saveMeeting adds a meeting to the meetings db', () => {
       expect(actual).toBe(expected)
     })
 })
-
-// test('getMeetingHistory returns a join of meetings and attendees', () => {
-//   // Arrange
-
-//   // Act
-
-//   // Assert
-  
-// })
-
-// test('getMeetingAttendees returns a join of users and meetings', () => {
-//   // Arrange
-
-//   // Act
-
-//   // Assert
-  
-// })
-
-// test('getAllMeetings returns the meetings table', () => {
-//   // Arrange
-//   const expected = 
-//   // Act
-
-//   // Assert
-  
-// })
