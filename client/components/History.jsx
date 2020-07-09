@@ -4,24 +4,25 @@ import { connect } from "react-redux"
 import { getMeeting } from '../apis/meetings'
 import { timeDisplay } from './Meeting'
 
-class History extends React.Component {
+export class History extends React.Component {
   state = {
-    attendees: []
+    attendees: [],
   }
 
   componentDidMount = () => {
     const id = this.props.match.params.id
-    getMeeting(id)
-      .then(attendees => {
-        this.setState({
-          attendees: attendees
-        })
+    getMeeting(id).then((attendees) => {
+      this.setState({
+        attendees: attendees,
       })
+    })
   }
 
   render() {
     const id = this.props.match.params.id
-    const meeting = this.props.meetings.find(meeting => meeting.meeting_id == id)
+    const meeting = this.props.meetings.find(
+      (meeting) => meeting.meeting_id == id
+    )
     return (
       <div className="container">
         <section>
@@ -32,17 +33,13 @@ class History extends React.Component {
                 <p>
                   <strong>Title:</strong>
                 </p>
-                <p>
-                  {meeting.meeting_name}
-                </p>
+                <p>{meeting.meeting_name}</p>
               </div>
               <div className="blue-even">
                 <p>
                   <strong>Date:</strong>
                 </p>
-                <p>
-                  {(new Date(meeting.time)).toLocaleDateString()}
-                </p>
+                <p>{new Date(meeting.time).toLocaleDateString()}</p>
               </div>
               <div className="blue-odd">
                 <p>
@@ -56,17 +53,19 @@ class History extends React.Component {
                 <p>
                   <strong>Number of Attendees:</strong>
                 </p>
-                <p>
-                  {meeting.attendees}
-                </p>
+                <p>{meeting.attendees}</p>
               </div>
               <div className="blue-odd">
                 <p>
                   <strong>Name of Attendees:</strong>
                 </p>
                 <ul>
-                  {this.state.attendees.map(attendee => {
-                    return <li key={attendee.user_id}>{attendee.first_name} {attendee.last_name}</li>
+                  {this.state.attendees.map((attendee) => {
+                    return (
+                      <li key={attendee.user_id}>
+                        {attendee.first_name} {attendee.last_name}
+                      </li>
+                    )
                   })}
                 </ul>
               </div>
@@ -85,7 +84,7 @@ class History extends React.Component {
 
 function mapStateToProps(globalState) {
   return {
-    meetings: globalState.meetings
+    meetings: globalState.meetings,
   }
 }
 

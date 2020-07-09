@@ -12,7 +12,7 @@ export const timeDisplay = (seconds) => {
 }
 
 
-class Meeting extends React.Component {
+export class Meeting extends React.Component {
 
   state = {
     meeting: false,
