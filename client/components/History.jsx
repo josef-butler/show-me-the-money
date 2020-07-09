@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 
 import { getMeeting } from '../apis/meetings'
 
-class History extends React.Component {
+export class History extends React.Component {
   state = {
     attendees: []
   }

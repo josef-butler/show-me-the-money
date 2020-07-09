@@ -4,7 +4,6 @@ import { shallow } from 'enzyme'
 import { App } from '../../../client/components/App'
 
 
-
 test('Title renders on App', () => {
   // Arrange
   const expected = '$how Me The Money'
