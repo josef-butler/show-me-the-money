@@ -1,7 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {Redirect} from "react-router-dom"
-import {addStaticData} from '../actions/staticActions'
+import { connect } from 'react-redux'
+import { Redirect } from "react-router-dom"
+import { addStaticData } from '../actions/staticActions'
 
 let arr = []
 
@@ -11,22 +11,32 @@ class CreateMeeting extends React.Component {
         name: '',
         hourlyWage: '',
         attendees: [],
-        hasSubmitted:false
+        hasSubmitted: false
+    }
+
+    componentDidMount() {
+        this.setState({
+            meetingName: '',
+            name: '',
+            hourlyWage: '',
+            attendees: [],
+            hasSubmitted: false
+        })
     }
 
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-          })
+        })
     }
 
     cpsCalc = () => {
-    let cph = 0
-    this.state.attendees.map((element) => {
-      cph += Number(element.hourlyWage)
-    })
-    return cph/3600
-  }
+        let cph = 0
+        this.state.attendees.map((element) => {
+            cph += Number(element.hourlyWage)
+        })
+        return Math.round((cph / 3600)*100)/100
+    }
 
     handleSumbit = (event) => {
         let obj = {
@@ -37,7 +47,7 @@ class CreateMeeting extends React.Component {
         }
         event.preventDefault()
         this.props.dispatch(addStaticData(obj))
-        this.setState({hasSubmitted:true})
+        this.setState({ hasSubmitted: true })
 
     }
 
@@ -78,14 +88,15 @@ class CreateMeeting extends React.Component {
                     <p>Attendees:</p>
                     <ul>
                         {this.state.attendees.map((element) => {
-                            return <li>Name: {element.name} Hourly Wage: {element.hourlyWage}</li>
+                            return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage}</li>
                         })}
                     </ul>
 
                     <input type="submit" value="Create Meeting" onClick={this.handleSumbit}></input>
 
                 </form>
-                {this.state.hasSubmitted && <Redirect to="/meeting"/>}
+               
+                {this.state.hasSubmitted && <Redirect to="/meeting" />}
             </>
         )
     }
@@ -97,7 +108,7 @@ function mapStateToProps(globalState) {
         staticReducer: globalState.staticReducer,
         dynamic: globalState.dynamic,
     }
-  }
-  
+}
+
 
 export default connect(mapStateToProps)(CreateMeeting)
