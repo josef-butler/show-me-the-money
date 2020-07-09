@@ -6,7 +6,6 @@ const db = require('../../db/meetings')
 
 
 router.get("/", (req, res) => {
-    console.log("getmeeting history request recived from client")
     db.getMeetingHistory()
     .then( data =>{
         res.json(data) 
