@@ -30,19 +30,13 @@ export class App extends React.Component {
         <div className="container has-text-centered">
           <div className="hero is-small is-primary">
             <div className="hero-body has-text-centered">
-              {/* CHANGE - conditional link depending on whether logged in or nat */}
-              <Link to="/dashboard" className="">
-                
                 <h1 className="title is-1">$how Me The Money</h1>
-              </Link>
               <Nav />
             </div>
           </div>
 
           <div className=''>
-            {!auth.isAuthenticated &&
-              <Route exact path="/" component={Login} />
-            }
+            {auth.isAuthenticated ?  <Route exact path="/" component={Dashboard}/> : <Route exact path="/" component={Login}/>}
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
