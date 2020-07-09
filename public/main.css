@@ -1,7 +1,7 @@
 table {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
+    margin: 45px auto;
+    width: 60vw;
+    height: auto;
     background-color: rgba(148, 205, 240, 0.708);
 }
 
@@ -30,4 +30,8 @@ tr:hover {
 
 td:hover {
     cursor: pointer;
+}
+
+.container h2 {
+    margin: 35px 0px;
 }
