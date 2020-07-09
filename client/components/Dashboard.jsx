@@ -35,7 +35,6 @@ class Dashboard extends React.Component {
                             <th>Duration</th>
                             <th>No. attendees</th>
                             <th>Cost</th>
-                            {/* <th></th> */}
                         </tr>
                     </thead>
                     <tbody>

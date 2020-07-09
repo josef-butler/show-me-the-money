@@ -11,7 +11,6 @@ import Register from './Register'
 import Nav from './Nav'
 import Meeting from './Meeting'
 import History from './History'
-
 import GraphWrap from './GraphWrap'
 import CreateMeeting from './CreateMeeting'
 
@@ -30,24 +29,17 @@ export class App extends React.Component {
         <div className="container has-text-centered">
           <div className="hero is-small is-primary">
             <div className="hero-body has-text-centered">
-              {/* CHANGE - conditional link depending on whether logged in or nat */}
-              <Link to="/dashboard" className="">
-                
                 <h1 className="title is-1">$how Me The Money</h1>
-              </Link>
               <Nav />
             </div>
           </div>
 
           <div className=''>
-            {!auth.isAuthenticated &&
-              <Route exact path="/" component={Login} />
-            }
+            {auth.isAuthenticated ?  <Route exact path="/" component={Dashboard}/> : <Route exact path="/" component={Login}/>}
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path='/dashboard' component={Dashboard} />
-
             <Route path="/meeting" component={Meeting} />
             <Route path="/history/:id" component={History} />
             <Route path="/create" component={CreateMeeting} />
