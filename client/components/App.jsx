@@ -1,8 +1,8 @@
 
 import React from 'react'
-import {HashRouter as Router, Route, Link} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {checkAuth} from '../actions/auth'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { checkAuth } from '../actions/auth'
 
 
 import Dashboard from './Dashboard'
@@ -21,20 +21,22 @@ import CreateMeeting from './CreateMeeting'
 
 export class App extends React.Component {
   componentDidMount() {
-    const confirmSuccess = () => {}
+    const confirmSuccess = () => { }
     this.props.dispatch(checkAuth(confirmSuccess))
   }
 
   render() {
     const { auth } = this.props
     return (
-      
+
       <Router>
-        
+
         <div className="container has-text-centered">
           <div className="hero is-small is-primary">
             <div className="hero-body has-text-centered">
-              <Link to="/" className="">
+              {/* CHANGE - conditional link depending on whether logged in or nat */}
+              <Link to="/dashboard" className="">
+                
                 <h1 className="title is-1">$how Me The Money</h1>
               </Link>
               <Nav />
@@ -44,8 +46,8 @@ export class App extends React.Component {
 
           <div className=''>
             {!auth.isAuthenticated &&
- <Route exact path="/" component={Login} />
-            } 
+              <Route exact path="/" component={Login} />
+            }
 
 
             <Route path="/login" component={Login} />
