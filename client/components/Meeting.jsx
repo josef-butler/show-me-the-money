@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {tickOneSecond} from '../actions/dynamicMeeting'
 
-class Meeting extends React.Component {
+export class Meeting extends React.Component {
 
   state = {
     meeting: false

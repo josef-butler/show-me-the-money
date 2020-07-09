@@ -1,7 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import {App} from '../../../client/components/App'
+import { App } from '../../../client/components/App'
+
+
 
 test('Title renders on App', () => {
   // Arrange
@@ -41,3 +43,4 @@ test('App has one less route when logged in', () => {
   // Assert
   expect(actual).toEqual(expected)
 })
+
