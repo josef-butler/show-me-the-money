@@ -18,6 +18,14 @@ export function getMeetings() {
       console.log("Error on getMeetings in /apis")
     )
 }
+export function getAll() {
+  return request
+    .get(rootUrl + "/all")
+    .then((res) => res.body)
+    .catch((err) =>
+      console.log("Error on getMeetings in /apis")
+    )
+}
 
 export function getMeeting(id) {
   return request

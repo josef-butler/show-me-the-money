@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
                     </thead>
                     <tbody>
                         {this.props.meetings.map(meeting => (
-                            <MeetingEntry key={`meeting_${meeting.meeting_id}`} id={meeting.meeting_id} meeting={meeting} history={this.props.history}/>
+                            <MeetingEntry key={`meeting_${meeting.meeting_id}`} id={meeting.meeting_id} meeting={meeting} history={this.props.history} />
                         ))}
                     </tbody>
                 </table>
