@@ -9,14 +9,6 @@ let initialState = {
     startTime: "",
     costPerSecond: "0.0"
 }
-  
-// function cpsCalc() {
-//     let cph = 0
-//     attendees.map((element) => {
-//       cph += element.hourly
-//     })
-//     return cph/3600
-//   }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -29,7 +21,7 @@ const reducer = (state = initialState, action) => {
         // case ADD_COST_PER_SECOND:
         //     return [...state, action.costPerSecond]
         case ADD_STATE:
-            console.log('here', action)
+            // console.log('here', action)
             return action.data
         default:
             return state

@@ -51,6 +51,8 @@ class CreateMeeting extends React.Component {
         this.setState({
             attendees: arr
         })
+        document.getElementById('nameInput').value = ''
+        document.getElementById('wageInput').value = ''
     }
 
     render() {
@@ -59,17 +61,17 @@ class CreateMeeting extends React.Component {
                 <h1>Create your meeting:</h1>
                 <form>
                     <label>Meeting Name:
-                        <input onChange={this.handleChange} type="text" name="meetingName"></input>
+                        <input onChange={this.handleChange} type="text" name="meetingName" required></input>
                     </label>
 
                     <p>Add Attendee:</p>
 
                     <label>Name:
-                        <input onChange={this.handleChange} type="text" name="name"></input>
+                        <input id="nameInput" onChange={this.handleChange} type="text" name="name"></input>
                     </label>
 
                     <label>Hourly Wage:
-                        <input onChange={this.handleChange} type="text" name="hourlyWage"></input>
+                        <input id="wageInput" onChange={this.handleChange} type="number" name="hourlyWage"></input>
                     </label>
 
                     <button onClick={this.handleAdd}>Add</button>
@@ -81,7 +83,7 @@ class CreateMeeting extends React.Component {
                         })}
                     </ul>
 
-                    <input type="submit" onClick={this.handleSumbit}></input>
+                    <input type="submit" value="Create Meeting" onClick={this.handleSumbit}></input>
 
                 </form>
                 {this.state.hasSubmitted && <Redirect to="/meeting"/>}
