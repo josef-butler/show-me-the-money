@@ -26,16 +26,55 @@ class History extends React.Component {
         <section>
           <article>
             <h2 className="title is-2">Meeting history</h2>
-            <p>{meeting.meeting_name}</p>
-            <p>Date: {(new Date(meeting.time)).toLocaleDateString()}</p>
-            <p>Duration: {meeting.duration}</p>
-            <p>Number of Attendees: {meeting.attendees}</p>
-            <ul>
-              {this.state.attendees.map(attendee => {
-                return <li key={attendee.user_id}>{attendee.first_name} {attendee.last_name}</li>
-              })}
-            </ul>
-            <p>Cost: {meeting.cost}</p>
+            <div className="history">
+              <div className="blue-odd">
+                <p>
+                  <strong>Title:</strong>
+                </p>
+                <p>
+                  {meeting.meeting_name}
+                </p>
+              </div>
+              <div className="blue-even">
+                <p>
+                  <strong>Date:</strong>
+                </p>
+                <p>
+                  {(new Date(meeting.time)).toLocaleDateString()}
+                </p>
+              </div>
+              <div className="blue-odd">
+                <p>
+                  <strong>Duration:</strong>
+                </p>
+                <p> 
+                  {meeting.duration}s
+                </p>
+              </div>
+              <div className="blue-even">
+                <p>
+                  <strong>Number of Attendees:</strong>
+                </p>
+                <p>
+                  {meeting.attendees}
+                </p>
+              </div>
+              <div className="blue-odd">
+                <p>
+                  <strong>Name of Attendees:</strong>
+                </p>
+                <ul>
+                  {this.state.attendees.map(attendee => {
+                    return <li key={attendee.user_id}>{attendee.first_name} {attendee.last_name}</li>
+                  })}
+                </ul>
+              </div>
+              <div className="blue-even">
+                <p>
+                  <strong>Cost: ${meeting.cost}0</strong>
+                </p>
+              </div>
+            </div>
           </article>
         </section>
       </div>
