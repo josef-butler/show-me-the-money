@@ -6,10 +6,7 @@ const {getTokenDecoder} = require('authenticare/server')
 
 
 //localhost:3000/api/v1/meetings/
-
 router.get("/", getTokenDecoder(), (req, res) => {
-
-    console.log("getmeeting history request recived from client")
     db.getMeetingHistory(req.user)
     .then( data =>{
         res.json(data) 
@@ -24,7 +21,6 @@ router.get("/:id/users", (req, res) => {
     console.log("getmeeting attendees recived ", req.body)
     db.getMeetingAttendees(req.params.id)
     .then(data=>{
-        console.log(data)
         res.json( {data})
         
     })
@@ -40,7 +36,6 @@ router.post("/", (req, res) => {
     console.log("create meeting recived ", req.body)
     db.saveMeeting(req.body)
     .then(data=>{
-        console.log(data)
         res.json( {data})
     })
     .catch(err => {
@@ -53,7 +48,6 @@ router.get("/all", (req, res) => {
     console.log("get All Meetings recived ")
     db.getAllMeetings()
     .then(data=>{
-        console.log(data)
         res.json({data})
         
     })
