@@ -8,7 +8,7 @@ exports.seed = function (knex) {
         {
           id: 1,
           meeting_name: "Bananas",
-          time: 1591575216000,
+          time: new Date(1591575216000),
           duration: 58,
           attendees: 5,
           cost: 450,
@@ -16,7 +16,7 @@ exports.seed = function (knex) {
         {
           id: 2,
           meeting_name: "Salt",
-          time: 1583109522000,
+          time: new Date(1583109522000),
           duration: 58,
           attendees: 7,
           cost: 360,
@@ -24,7 +24,7 @@ exports.seed = function (knex) {
         {
           id: 3,
           meeting_name: "Red",
-          time: 1585147888000,
+          time: new Date(1585147888000),
           duration: 55,
           attendees: 6,
           cost: 400,
@@ -32,7 +32,7 @@ exports.seed = function (knex) {
         {
           id: 4,
           meeting_name: "Happy",
-          time: 1594254200000,
+          time: new Date(1594254200000),
           duration: 65,
           attendees: 20,
           cost: 400,
@@ -40,7 +40,7 @@ exports.seed = function (knex) {
         {
           id: 5,
           meeting_name: "Dingo",
-          time: 1586187310000,
+          time: new Date(1586187310000),
           duration: 34,
           attendees: 11,
           cost: 380,
@@ -48,7 +48,7 @@ exports.seed = function (knex) {
         {
           id: 6,
           meeting_name: "banjo",
-          time: 1606187310000,
+          time: new Date(1606187310000),
           duration: 34,
           attendees: 11,
           cost: 260,
@@ -56,7 +56,7 @@ exports.seed = function (knex) {
         {
           id: 7,
           meeting_name: "boo!",
-          time: 1626187310000,
+          time: new Date(1626187310000),
           duration: 34,
           attendees: 11,
           cost: 210,
