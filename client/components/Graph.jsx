@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { Chart } from 'react-charts'
+import { alignRight } from 'react-charts/dist/react-charts.development'
 
  
 
@@ -16,11 +17,11 @@ function Graph(props) {
       []
     )
     
-   
+  
     const axes = React.useMemo(
       () => [
-        { primary: true, type: 'linear', position: 'bottom' },
-        { type: 'linear', position: 'left' }
+        { primary: true, type: 'ordinal', position: 'bottom', align: "right"},
+        { type: 'linear', position: 'left', }
       ],
       []
     )
@@ -36,6 +37,7 @@ function Graph(props) {
         <div className="lefttitle">Cost</div>
         
         <Chart data={data} axes={axes} />
+
         <div className="bottomtitle">Time</div>
       
       </div>

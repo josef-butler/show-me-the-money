@@ -28,7 +28,9 @@ function getMeetingAttendees (meeting, db = connection) {
 } 
 
 function getAllMeetings (db = connection) {
-return db("meetings").select()
+return db("meetings")
+.select()
+.orderBy('time', 'asc')
 }
 
 module.exports = {
