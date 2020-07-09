@@ -21,13 +21,14 @@ class History extends React.Component {
   render() {
     const id = this.props.match.params.id
     const meeting = this.props.meetings.find(meeting => meeting.id == id)
+    
     return (
       <div className="container">
         <section>
           <article>
             <h2 className="title is-2">Meeting history</h2>
             <p>{meeting.meeting_name}</p>
-            <p>Date: {meeting.time}</p>
+            <p>Date: {(new Date(meeting.time)).toLocaleDateString()}</p>
             <p>Duration: {meeting.duration}</p>
             <p>Number of Attendees: {meeting.attendees}</p>
             <ul>
