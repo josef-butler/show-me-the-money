@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import { getMeeting } from '../apis/meetings'
+import { timeDisplay } from './Meeting'
 
 class History extends React.Component {
   state = {
@@ -48,7 +49,7 @@ class History extends React.Component {
                   <strong>Duration:</strong>
                 </p>
                 <p> 
-                  {meeting.duration}s
+                  {timeDisplay(meeting.duration)}s
                 </p>
               </div>
               <div className="blue-even">
