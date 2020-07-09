@@ -35,12 +35,11 @@ class Dashboard extends React.Component {
                             <th>Duration</th>
                             <th>No. attendees</th>
                             <th>Cost</th>
-                            {/* <th></th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {this.props.meetings.map(meeting => (
-                            <MeetingEntry key={`meeting_${meeting.id}`} id={meeting.id} meeting={meeting} history={this.props.history}/>
+                            <MeetingEntry key={`meeting_${meeting.meeting_id}`} id={meeting.meeting_id} meeting={meeting} history={this.props.history}/>
                         ))}
                     </tbody>
                 </table>

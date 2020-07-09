@@ -34,7 +34,6 @@ class CreateMeeting extends React.Component {
             costPerSecond: this.cpsCalc()
         }
         event.preventDefault()
-        console.log('hello?')
         this.props.dispatch(addStaticData(obj))
         
     }
