@@ -3,19 +3,21 @@ import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom"
 import { addStaticData } from '../actions/staticActions'
 
-let arr = []
 
 class CreateMeeting extends React.Component {
     state = {
+        arr: [],
         meetingName: '',
         name: '',
         hourlyWage: '',
         attendees: [],
-        hasSubmitted: false
+        hasSubmitted: false,
+        changer: true,
     }
-
+    
     componentDidMount() {
         this.setState({
+            arr: [],
             meetingName: '',
             name: '',
             hourlyWage: '',
@@ -35,7 +37,7 @@ class CreateMeeting extends React.Component {
         this.state.attendees.map((element) => {
             cph += Number(element.hourlyWage)
         })
-        return Math.round((cph / 3600)*100)/100
+        return cph / 3600
     }
 
     handleSumbit = (event) => {
@@ -53,12 +55,16 @@ class CreateMeeting extends React.Component {
 
     handleAdd = (event) => {
         event.preventDefault()
-        arr.push({
+        this.state.arr.push({
             name: this.state.name,
             hourlyWage: this.state.hourlyWage,
         })
         this.setState({
-            attendees: arr
+            attendees: this.state.arr
+        })
+        this.setState({
+            name: '',
+            hourlyWage: '',
         })
         document.getElementById('nameInput').value = ''
         document.getElementById('wageInput').value = ''
@@ -87,8 +93,14 @@ class CreateMeeting extends React.Component {
 
                     <p>Attendees:</p>
                     <ul>
-                        {this.state.attendees.map((element) => {
-                            return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage}</li>
+                        {this.state.attendees.map((element, i) => {
+                            return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage} <button onClick={(event)=> {
+                                event.preventDefault()
+                                this.state.attendees.splice(i, 1)
+                                this.setState({
+                                    changer: !this.state.changer
+                                })
+                            }}>Delete</button></li>
                         })}
                     </ul>
 
