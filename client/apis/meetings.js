@@ -23,7 +23,7 @@ export function getAll() {
     .get(rootUrl + "/all")
     .then((res) => res.body)
     .catch((err) =>
-      console.log("Error on getMeetings in /apis")
+      console.log("Error on getAll in /apis")
     )
 }
 
@@ -36,4 +36,14 @@ export function getMeeting(id) {
     .catch((err) =>
       console.log("Error on getMeeting in /apis")
     )
+}
+
+export function saveMeeting(data){
+  return request
+  .post(rootUrl)
+  .set(acceptJsonHeader)
+  .set(getAuthorizationHeader())
+  .send(data)
+  .then((res) => res.body.data)
+  .catch((err) => console.log("Error on saveMeeting in /apis"))
 }
