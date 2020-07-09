@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-
 import { getMeetings } from '../actions/meetings'
 
 import MeetingEntry from './MeetingEntry'
@@ -37,12 +36,12 @@ class Dashboard extends React.Component {
                             <th>Duration</th>
                             <th>No. attendees</th>
                             <th>Cost</th>
-                            <th></th>
+                            {/* <th></th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {this.props.meetings.map(meeting => (
-                            <MeetingEntry key={`meeting_${meeting.id}`} id={meeting.id} meeting={meeting} />
+                            <MeetingEntry key={`meeting_${meeting.id}`} id={meeting.id} meeting={meeting}/>
                         ))}
                     </tbody>
                 </table>

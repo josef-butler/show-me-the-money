@@ -24,6 +24,7 @@ class History extends React.Component {
   render() {
     // Meeting ID is passed down from dashboard
     const { meeting }  = this.props
+    console.log(meeting)
     return (
       <div className="container">
         <section>
