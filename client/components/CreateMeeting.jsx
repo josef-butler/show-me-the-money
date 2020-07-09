@@ -11,7 +11,8 @@ class CreateMeeting extends React.Component {
         name: '',
         hourlyWage: '',
         attendees: [],
-        hasSubmitted: false
+        hasSubmitted: false,
+        changer: true,
     }
     
     componentDidMount() {
@@ -92,8 +93,14 @@ class CreateMeeting extends React.Component {
 
                     <p>Attendees:</p>
                     <ul>
-                        {this.state.attendees.map((element) => {
-                            return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage}</li>
+                        {this.state.attendees.map((element, i) => {
+                            return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage} <button onClick={(event)=> {
+                                event.preventDefault()
+                                this.state.attendees.splice(i, 1)
+                                this.setState({
+                                    changer: !this.state.changer
+                                })
+                            }}>Delete</button></li>
                         })}
                     </ul>
 
