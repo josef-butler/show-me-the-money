@@ -7,7 +7,7 @@ let initialState = {
     attendees: [],
     meetingName: "",
     startTime: "",
-    costPerSecond: "0.0"
+    costPerSecond: 0
 }
 
 const reducer = (state = initialState, action) => {

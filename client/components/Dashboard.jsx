@@ -24,8 +24,10 @@ class Dashboard extends React.Component {
         return (
             <div className="container">
                 <h2 className="title is-2">Dashboard</h2>
-                <button name='create' onClick={this.handleClick}>CREATE</button>
-                <button name='graph' onClick={this.handleClick}>GRAPH</button>
+                <div className="button">
+                    <button name='create' onClick={this.handleClick}>CREATE</button>
+                    <button name='graph' onClick={this.handleClick}>GRAPH</button>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -35,12 +37,11 @@ class Dashboard extends React.Component {
                             <th>Duration</th>
                             <th>No. attendees</th>
                             <th>Cost</th>
-                            {/* <th></th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {this.props.meetings.map(meeting => (
-                            <MeetingEntry key={`meeting_${meeting.id}`} id={meeting.id} meeting={meeting} history={this.props.history}/>
+                            <MeetingEntry key={`meeting_${meeting.meeting_id}`} id={meeting.meeting_id} meeting={meeting} history={this.props.history} />
                         ))}
                     </tbody>
                 </table>
