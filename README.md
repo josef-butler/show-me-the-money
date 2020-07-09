@@ -1,5 +1,7 @@
 # $how Me The Money
 
+https://show-me-the-monaay.herokuapp.com/#/
+
 ## Week 7 Large group project
 
 Meetings are expensive, but sometimes we forget how expensive they are and feel the need to talk for too long about topics that are unimportant for the meeting purpose.
