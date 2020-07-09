@@ -64,7 +64,7 @@ class Meeting extends React.Component {
       </div>
       <div>
         <h3>TIME ELAPSED: {this.props.dynamic.timeElapsed}</h3>
-        <h3>RUNNING TOTAL COST: {this.props.dynamic.currentTotal} </h3>
+        <h3>RUNNING TOTAL COST: {Math.round(this.props.dynamic.currentTotal * 100) / 100}</h3>
       </div>
       {this.state.meeting ? <button onClick={this.handleClick}>Pause</button> : <button onClick={this.handleClick}>Start</button>}
       <button onClick={this.handleFinish}>Finish</button>

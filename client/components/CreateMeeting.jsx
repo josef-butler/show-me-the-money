@@ -36,7 +36,7 @@ class CreateMeeting extends React.Component {
         this.state.attendees.map((element) => {
             cph += Number(element.hourlyWage)
         })
-        return Math.round((cph / 3600)*100)/100
+        return cph / 3600
     }
 
     handleSumbit = (event) => {
