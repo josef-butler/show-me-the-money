@@ -6,7 +6,6 @@ import { getMeetings } from '../actions/meetings'
 import MeetingEntry from './MeetingEntry'
 
 class Dashboard extends React.Component {
-
     componentDidMount() {
         this.props.dispatch(getMeetings())
     }
