@@ -4,13 +4,20 @@ function saveMeeting (meeting, db = connection) {
     return db('meetings').insert(meeting)
 }
 
-function getMeetingHistory (user, db = connection) {
-    console.log("data is ", user.id)
+// For MVP dashboard we don't really need a join, we can get away with just meeting data. Kept original function commented out below in case we need the join for stretch
+
+function getMeetingHistory(db = connection) {
     return db('meetings')
-    .join("attendees", "meetings.id", "attendees.meeting_id")
-    .join("users", "users.id", "attendees.user_id")
-    .where("user_id", user.id)
-}   
+        .select()
+}
+
+// function getMeetingHistory (user, db = connection) {
+//     console.log("data is ", user.id)
+//     return db('meetings')
+//     .join("attendees", "meetings.id", "attendees.meeting_id")
+//     .join("users", "users.id", "attendees.user_id")
+//     .where("user_id", user.id)
+// }   
 
 function getMeetingAttendees (meeting, db = connection) {
     console.log("data is ", meeting)

@@ -12,7 +12,7 @@ function receiveMeetings(meetings) {
 export function getMeetings() {
   return (dispatch) => {
     apiGetMeetings()
-      .then((meetings) => {
+      .then(meetings => {
         dispatch(receiveMeetings(meetings))
       })
       .catch((err) => {
