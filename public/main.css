@@ -65,7 +65,8 @@ article p, ul {
 
 .history {
     margin: 35px auto;
-    width: 30vw;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
     border-radius: 10px;
 }
