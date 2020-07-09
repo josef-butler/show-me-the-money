@@ -14,9 +14,6 @@ import History from './History'
 import CreateMeeting from './CreateMeeting'
 import Graph from './Graph'
 
-
-
-
 export class App extends React.Component {
   componentDidMount() {
     const confirmSuccess = () => {}
@@ -40,9 +37,7 @@ export class App extends React.Component {
           <div className="">
             {!auth.isAuthenticated && (
               <Route exact path="/" component={Login} />
-
             )}
-
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />

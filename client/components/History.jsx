@@ -20,7 +20,7 @@ class History extends React.Component {
 
   render() {
     const id = this.props.match.params.id
-    const meeting = this.props.meetings.find(meeting => meeting.id == id)
+    const meeting = this.props.meetings.find(meeting => meeting.meeting_id == id)
     return (
       <div className="container">
         <section>
