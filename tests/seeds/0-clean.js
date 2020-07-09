@@ -1,6 +1,8 @@
 exports.seed = function (knex, Promise) {
   const empty = table =>
-    () => knex(table.del())
+    () => knex(table).del()
 
-    return empty('users')()
+  return empty('users')()
+    .then(empty('meetings'))
+    .then(empty('attendees'))
 }
