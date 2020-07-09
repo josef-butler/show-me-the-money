@@ -11,7 +11,6 @@ import Register from './Register'
 import Nav from './Nav'
 import Meeting from './Meeting'
 import History from './History'
-
 import GraphWrap from './GraphWrap'
 import CreateMeeting from './CreateMeeting'
 
@@ -41,7 +40,6 @@ export class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path='/dashboard' component={Dashboard} />
-
             <Route path="/meeting" component={Meeting} />
             <Route path="/history/:id" component={History} />
             <Route path="/create" component={CreateMeeting} />

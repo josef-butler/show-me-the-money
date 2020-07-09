@@ -30,7 +30,11 @@ class Nav extends React.Component {
           <div className="navbar-end">
             { auth.isAuthenticated
               ? (
+                <>
                   <Link to='/' className="navbar-item is-large" onClick={() => logout()}>Logout</Link>
+                  <Link to='/dashboard' className="navbar-item is-large">Dashboard</Link>
+                  <Link to='/create' className="navbar-item is-large">Create Meeting</Link>
+                </>
                 )
               : (
                 <>
