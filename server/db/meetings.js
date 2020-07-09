@@ -27,8 +27,15 @@ function getMeetingAttendees (meeting, db = connection) {
     .where("meeting_id", meeting)
 } 
 
+function getAllMeetings (db = connection) {
+return db("meetings")
+.select()
+.orderBy('time', 'asc')
+}
+
 module.exports = {
     saveMeeting,
     getMeetingHistory,
     getMeetingAttendees,
+    getAllMeetings,
 }
