@@ -4,26 +4,23 @@ import { connect } from "react-redux"
 import { getMeeting } from '../apis/meetings'
 
 class History extends React.Component {
-
   state = {
     attendees: []
   }
 
   componentDidMount = () => {
-    const id = this.props.id
-    console.log(id)
-    console.log(this.state.attendees)
+    const id = this.props.match.params.id
     getMeeting(id)
-    .then(this.setState({
-      attendees: getMeeting(id)
-    }))
-    console.log(this.state.attendees)
+      .then(attendees => {
+        this.setState({
+          attendees: attendees
+        })
+      })
   }
 
-
   render() {
-    // Meeting ID is passed down from dashboard
-    const { meeting }  = this.props
+    const id = this.props.match.params.id
+    const meeting = this.props.meetings.find(meeting => meeting.id == id)
     return (
       <div className="container">
         <section>
@@ -46,4 +43,10 @@ class History extends React.Component {
   }
 }
 
-export default connect()(History)
+function mapStateToProps(globalState) {
+  return {
+    meetings: globalState.meetings
+  }
+}
+
+export default connect(mapStateToProps)(History)
