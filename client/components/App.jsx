@@ -12,12 +12,8 @@ import Nav from './Nav'
 import Meeting from './Meeting'
 import History from './History'
 
-
 import GraphWrap from './GraphWrap'
-
 import CreateMeeting from './CreateMeeting'
-
-
 
 export class App extends React.Component {
   componentDidMount() {
@@ -43,12 +39,10 @@ export class App extends React.Component {
             </div>
           </div>
 
-
           <div className=''>
             {!auth.isAuthenticated &&
               <Route exact path="/" component={Login} />
             }
-
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
