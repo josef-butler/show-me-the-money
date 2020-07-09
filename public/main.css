@@ -1,7 +1,7 @@
 table {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
+    margin: 45px auto;
+    width: 60vw;
+    height: auto;
     background-color: rgba(148, 205, 240, 0.708);
 }
 
@@ -30,4 +30,53 @@ tr:hover {
 
 td:hover {
     cursor: pointer;
+}
+
+.container h2 {
+    margin: 35px 0px;
+}
+
+.button {
+    display: flex;
+    margin-top: 35px
+}
+
+.button button{
+    justify-content: space-between;
+    font-size: large;
+    width: 150px;
+    height: auto;
+    margin: 10%;
+    padding: 0.7em 1.7em;
+    border-radius: 0.2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 400;
+    color: #FFFFFF;
+    background-color: #3369ff;
+    box-shadow: inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+    text-align: center;
+}
+
+article p, ul {
+    font-size: large;
+}
+
+.history {
+    margin: 35px auto;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.blue-even {
+    padding: 10px 0;
+    background-color: rgba(125, 194, 236, 0.605);
+}
+
+.blue-odd {
+    padding: 10px 0;
+    background-color: rgba(86, 178, 235, 0.616);
 }
