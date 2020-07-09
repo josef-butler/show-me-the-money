@@ -16,7 +16,9 @@ function getMeetingHistory (user, db = connection) {
     return db('meetings')
     .join("attendees", "meetings.id", "attendees.meeting_id")
     .join("users", "users.id", "attendees.user_id")
+    .orderBy('time', 'desc')
     .where("user_id", user.id)
+    
 }   
 
 function getMeetingAttendees (meeting, db = connection) {
