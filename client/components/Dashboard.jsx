@@ -24,8 +24,10 @@ class Dashboard extends React.Component {
         return (
             <div className="container">
                 <h2 className="title is-2">Dashboard</h2>
-                <button name='create' onClick={this.handleClick}>CREATE</button>
-                <button name='graph' onClick={this.handleClick}>GRAPH</button>
+                <div className="button">
+                    <button name='create' onClick={this.handleClick}>CREATE</button>
+                    <button name='graph' onClick={this.handleClick}>GRAPH</button>
+                </div>
                 <table>
                     <thead>
                         <tr>
