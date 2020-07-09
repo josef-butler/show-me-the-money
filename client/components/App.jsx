@@ -53,7 +53,7 @@ export class App extends React.Component {
             <Route path='/dashboard' component={Dashboard} />
 
             <Route path="/meeting" component={Meeting} />
-            <Route path="/history" component={History} />
+            <Route path="/history/:id" component={History} />
             <Route path="/create" component={CreateMeeting} />
             <Route path="/graph" component={GraphWrap} />
           </div>

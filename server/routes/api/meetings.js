@@ -2,12 +2,15 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../../db/meetings')
+const {getTokenDecoder} = require('authenticare/server')
+
 
 //localhost:3000/api/v1/meetings/
 
-router.get("/", (req, res) => {
+router.get("/", getTokenDecoder(), (req, res) => {
+
     console.log("getmeeting history request recived from client")
-    db.getMeetingHistory()
+    db.getMeetingHistory(req.user)
     .then( data =>{
         res.json(data) 
     })

@@ -31,8 +31,8 @@ export function getMeeting(id) {
   return request
     .get(`${rootUrl}/${id}/users`)
     .set(acceptJsonHeader)
-    .set(getAuthorizationHeader)
-    .then((res) => res.body)
+    .set(getAuthorizationHeader())
+    .then((res) => res.body.data)
     .catch((err) =>
       console.log("Error on getMeeting in /apis")
     )
