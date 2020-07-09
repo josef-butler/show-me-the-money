@@ -1,0 +1,33 @@
+table {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    background-color: rgba(148, 205, 240, 0.708);
+}
+
+th, td {
+    padding: 15px;
+}
+
+table th {
+    height: 100px;
+    vertical-align: middle;
+    background-color: rgba(22, 155, 238, 0.913);
+    color: white;
+}
+
+table td {
+    vertical-align: middle;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(146, 203, 238, 0.44);
+}
+
+tr:hover {
+    background-color: rgba(54, 166, 236, 0.639);
+}
+
+td:hover {
+    cursor: pointer;
+}

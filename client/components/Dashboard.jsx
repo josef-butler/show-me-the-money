@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
                 <h2 className="title is-2">Dashboard</h2>
                 <button name='create' onClick={this.handleClick}>CREATE</button>
                 <button name='graph' onClick={this.handleClick}>GRAPH</button>
-                <table className="table">
+                <table>
                     <thead>
                         <tr>
                             <th>Date</th>
