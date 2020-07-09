@@ -43,7 +43,7 @@ class GraphWrap extends React.Component {
            
             {/*  */}
             <div >
-                    <h1><b style={{fontSize: "40px"}}>see how users of our site have benafited </b></h1>
+                    <h1><b style={{fontSize: "40px"}}>see how users of our site have benefited </b></h1>
 
                     </div>
               <div >{this.state.dataload ? <Graph data={this.state.meetingdata}/> : "false"}</div>
