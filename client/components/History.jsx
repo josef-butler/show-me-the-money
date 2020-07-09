@@ -27,7 +27,7 @@ class History extends React.Component {
           <article>
             <h2 className="title is-2">Meeting history</h2>
             <p>{meeting.meeting_name}</p>
-            <p>Date: {meeting.time}</p>
+            <p>Date: {(new Date(meeting.time)).toLocaleDateString()}</p>
             <p>Duration: {meeting.duration}</p>
             <p>Number of Attendees: {meeting.attendees}</p>
             <ul>
