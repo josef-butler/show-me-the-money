@@ -3,19 +3,20 @@ import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom"
 import { addStaticData } from '../actions/staticActions'
 
-let arr = []
 
 class CreateMeeting extends React.Component {
     state = {
+        arr: [],
         meetingName: '',
         name: '',
         hourlyWage: '',
         attendees: [],
         hasSubmitted: false
     }
-
+    
     componentDidMount() {
         this.setState({
+            arr: [],
             meetingName: '',
             name: '',
             hourlyWage: '',
@@ -53,12 +54,16 @@ class CreateMeeting extends React.Component {
 
     handleAdd = (event) => {
         event.preventDefault()
-        arr.push({
+        this.state.arr.push({
             name: this.state.name,
             hourlyWage: this.state.hourlyWage,
         })
         this.setState({
-            attendees: arr
+            attendees: this.state.arr
+        })
+        this.setState({
+            name: '',
+            hourlyWage: '',
         })
         document.getElementById('nameInput').value = ''
         document.getElementById('wageInput').value = ''
