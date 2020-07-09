@@ -40,10 +40,14 @@ class GraphWrap extends React.Component {
     render() {
         return (
             <>
-            <p> this is the GraphWrap component</p>
+           
             {/*  */}
-              {this.state.dataload ? <Graph data={this.state.meetingdata}/> : "false"}
-              
+            <div >
+                    <h1><b style={{fontSize: "40px"}}>see how users of our site have benafited </b></h1>
+
+                    </div>
+              <div >{this.state.dataload ? <Graph data={this.state.meetingdata}/> : "false"}</div>
+             
              
             </>
             )
