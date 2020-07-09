@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { tickOneSecond, resetTimer } from '../actions/dynamicMeeting'
 import {saveMeeting} from '../apis/meetings'
 
-class Meeting extends React.Component {
+export class Meeting extends React.Component {
 
   state = {
     meeting: false,
