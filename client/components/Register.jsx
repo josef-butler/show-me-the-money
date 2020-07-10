@@ -46,7 +46,7 @@ class Register extends React.Component {
             <input required className="input is-large has-text-centered is-fullwidth" placeholder="Last Name" type="text" name="last_name" onChange={this.handleChange} value={this.state.last_name}/>
           </label>
           <label className="column is-6 label is-large has-text-centered">Hourly wage
-            <input required className="input is-large has-text-centered is-fullwidth" placeholder="Hourly wage" type="text" name="hourly_wage" onChange={this.handleChange} value={this.state.hourly_wage}/>
+            <input type="number"  required className="input is-large has-text-centered is-fullwidth" placeholder="Hourly wage"  name="hourly_wage" onChange={this.handleChange} value={this.state.hourly_wage}/>
           </label>
         </div>
         <br />
