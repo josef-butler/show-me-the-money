@@ -8,8 +8,9 @@ class CreateMeeting extends React.Component {
     state = {
         arr: [],
         meetingName: '',
-        name: '',
-        hourlyWage: '',
+        first_name: '',
+        last_name: '',
+        hourly_wage: '',
         attendees: [],
         hasSubmitted: false,
         changer: true,
@@ -19,8 +20,9 @@ class CreateMeeting extends React.Component {
         this.setState({
             arr: [],
             meetingName: '',
-            name: '',
-            hourlyWage: '',
+            first_name: '',
+            last_name: '',
+            hourly_wage: '',
             attendees: [],
             hasSubmitted: false
         })
@@ -35,7 +37,7 @@ class CreateMeeting extends React.Component {
     cpsCalc = () => {
         let cph = 0
         this.state.attendees.map((element) => {
-            cph += Number(element.hourlyWage)
+            cph += Number(element.hourly_wage)
         })
         return cph / 3600
     }
@@ -56,17 +58,20 @@ class CreateMeeting extends React.Component {
     handleAdd = (event) => {
         event.preventDefault()
         this.state.arr.push({
-            name: this.state.name,
-            hourlyWage: this.state.hourlyWage,
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            hourly_wage: this.state.hourly_wage,
         })
         this.setState({
             attendees: this.state.arr
         })
         this.setState({
-            name: '',
-            hourlyWage: '',
+            first_name: '',
+            last_name: '',
+            hourly_wage: '',
         })
-        document.getElementById('nameInput').value = ''
+        document.getElementById('firstNameInput').value = ''
+        document.getElementById('lastNameInput').value = ''
         document.getElementById('wageInput').value = ''
     }
 
@@ -81,12 +86,16 @@ class CreateMeeting extends React.Component {
 
                     <p>Add Attendee:</p>
 
-                    <label>Name:
-                        <input id="nameInput" onChange={this.handleChange} type="text" name="name"></input>
+                    <label>First name:
+                        <input id="firstNameInput" onChange={this.handleChange} type="text" name="first_name"></input>
+                    </label>
+
+                    <label>Last name:
+                        <input id="lastNameInput" onChange={this.handleChange} type="text" name="last_name"></input>
                     </label>
 
                     <label>Hourly Wage:
-                        <input id="wageInput" onChange={this.handleChange} type="number" name="hourlyWage"></input>
+                        <input id="wageInput" onChange={this.handleChange} type="number" name="hourly_wage"></input>
                     </label>
 
                     <button onClick={this.handleAdd}>Add</button>
@@ -94,7 +103,7 @@ class CreateMeeting extends React.Component {
                     <p>Attendees:</p>
                     <ul>
                         {this.state.attendees.map((element, i) => {
-                            return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage} <button onClick={(event)=> {
+                            return <li key={`attendee_${i}`}>Name: {`${element.first_name} ${element.last_name}`} Hourly Wage: {element.hourly_wage} <button onClick={(event)=> {
                                 event.preventDefault()
                                 this.state.attendees.splice(i, 1)
                                 this.setState({

@@ -38,12 +38,12 @@ export function getMeeting(id) {
     )
 }
 
-export function saveMeeting(data){
+export function saveMeeting(dataObj){
   return request
   .post(rootUrl)
   .set(acceptJsonHeader)
   .set(getAuthorizationHeader())
-  .send(data)
+  .send(dataObj)
   .then((res) => res.body.data)
   .catch((err) => console.log("Error on saveMeeting in /apis"))
 }

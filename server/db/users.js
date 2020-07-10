@@ -27,9 +27,16 @@ function getUsers (db = connection) {
       .select()
 }
 
+function createUnregisteredUser(user, db = connection) {
+  return db('users')
+    .insert(user)
+    .then(ids => ids[0])
+}
+
 module.exports = {
   createUser,
   userExists,
   getUserByUsername,
   getUsers,
+  createUnregisteredUser
 }
