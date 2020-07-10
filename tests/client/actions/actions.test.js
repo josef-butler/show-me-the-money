@@ -4,7 +4,13 @@ import { ADD_STATE } from '../../../client/actions/staticActions'
 import { tickOneSecond } from '../../../client/actions/dynamicMeeting'
 import { TICK_ONE_SECOND } from '../../../client/actions/dynamicMeeting'
 import { RECEIVE_MEETINGS } from '../../../client/actions/meetings'
-import { receiveMeetings } from '../../../client/actions/meetings'
+import { receiveMeetings, getMeetings } from '../../../client/actions/meetings'
+
+jest.mock('../../../client/apis/meetings', () => ({
+  getMeetings: jest.fn()
+}))
+
+import {getMeetings as apiGetMeetings } from '../../../client/apis/meetings'
 
 test('Login request', () => {
   // Arrange
@@ -48,6 +54,20 @@ test('receiveMeetings action works', () => {
   expect(actual).toEqual(expected)
 })
 
+
+test('getMeetings action works', () => {
+  const mockDispatch = jest.fn()
+
+  // Fake the API client
+  apiGetMeetings.mockImplementation(() => Promise.resolve([]))
+
+  const action = getMeetings()
+
+  return action(mockDispatch).then(() => {
+    expect(mockDispatch).toHaveBeenCalled()
+    expect(apiGetMeetings).toHaveBeenCalled()
+  })
+})
 
 
 

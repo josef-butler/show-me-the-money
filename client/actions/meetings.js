@@ -11,7 +11,7 @@ export function receiveMeetings(meetings) {
 
 export function getMeetings() {
   return (dispatch) => {    
-    apiGetMeetings()
+    return apiGetMeetings()
       .then(meetings => {
         dispatch(receiveMeetings(meetings))
       })
