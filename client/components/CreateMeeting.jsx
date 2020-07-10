@@ -89,7 +89,7 @@ class CreateMeeting extends React.Component {
    
     render() {
         return (
-            <div className="form">
+            <div className="main-form">
                 <div className="text">
                     <div className="content">
                     <h1>Create your meeting:</h1>

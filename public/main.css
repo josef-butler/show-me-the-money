@@ -79,7 +79,7 @@ article p, ul {
     background-color: rgba(86, 178, 235, 0.616);
 }
 
-.form {
+.main-form {
     display: flex;
     background-color: rgba(125, 194, 236, 0.605);
     width: 100%;
@@ -127,4 +127,10 @@ article p, ul {
 
 .timer h2 {
     font-size: 20px; 
+}
+
+.scroll {
+    margin: 0 0 5px 5px;
+    padding: 10px;
+    font-size: 1rem
 }
