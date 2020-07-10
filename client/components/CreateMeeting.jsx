@@ -100,6 +100,8 @@ class CreateMeeting extends React.Component {
                             <label>Meeting Name:
                                 <input onChange={this.handleChange} type="text" name="meetingName" required></input>
                             </label>
+                            <br>
+                            </br>
                             <label>Max meeting time:
                                 <input onChange={this.handleChange} type="number" name="maxMeetingTime" required></input>
                             </label>
