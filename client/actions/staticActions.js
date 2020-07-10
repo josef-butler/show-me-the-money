@@ -4,7 +4,6 @@ export const ADD_ATTENDEE = 'ADD_ATTENDEE'
 
 
 export function addStaticData (data){
-    console.log("action", data)
     // data.startTime = new Date().toLocaleString()
     return {
         type: ADD_STATE,

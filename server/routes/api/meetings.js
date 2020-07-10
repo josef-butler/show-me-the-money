@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../../db/meetings')
+const attendeesDb = require('../../db/attendees')
+
 const {getTokenDecoder} = require('authenticare/server')
 
 
@@ -32,11 +34,19 @@ router.get("/:id/users", (req, res) => {
 
 //database responds with the id of the post created
 //should respond with The Meeting that has been saved in db read format???????
-router.post("/", (req, res) => {
+router.post("/", getTokenDecoder(), (req, res) => {
     console.log("create meeting recived ", req.body)
+    let userId = req.user.id
     db.saveMeeting(req.body)
-    .then(data=>{
-        res.json( {data})
+    .then(meetingId=>{
+        let data = {
+            meeting_id: meetingId,
+            user_id: userId
+        }
+        attendeesDb.saveAttendees(data)
+        .then(meetingId => {
+            res.json(meetingId)
+        })
     })
     .catch(err => {
         res.status(500).send( "it broke :/" )
