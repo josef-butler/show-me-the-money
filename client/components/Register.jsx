@@ -23,6 +23,7 @@ class Register extends React.Component {
     e.preventDefault()
     e.target.reset()
     let {username, password, confirm_password, first_name, last_name, hourly_wage} = this.state
+    if (hourly_wage < 18) window.location.replace("https://www.seek.co.nz/web-developer-jobs-in-information-communication-technology/in-All-Wellington?salaryrange=60000-999999&salarytype=annual");
     if (confirm_password != password) return this.props.dispatch(loginError("Passwords don't match"))
     const confirmSuccess = () => { this.props.history.push('/') }
     this.props.dispatch(registerUserRequest({username, password, first_name, last_name, hourly_wage}, confirmSuccess))
