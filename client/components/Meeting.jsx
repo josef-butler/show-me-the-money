@@ -5,10 +5,10 @@ import { saveMeeting } from '../apis/meetings'
 import { Redirect } from "react-router-dom"
 
 export const timeDisplay = (seconds) => {
-  let h = Math.floor(seconds/3600)
-  let m = Math.floor((seconds/60) - (Math.floor(seconds/3600) * 60))
-  let s = seconds - (Math.floor(seconds/60) * 60)
-  return (`${h}`+`:${m}`+`:${s}`)
+  let h = Math.floor(seconds / 3600)
+  let m = Math.floor((seconds / 60) - (Math.floor(seconds / 3600) * 60))
+  let s = seconds - (Math.floor(seconds / 60) * 60)
+  return (`${h}` + `:${m}` + `:${s}`)
 }
 
 export class Meeting extends React.Component {
@@ -17,12 +17,13 @@ export class Meeting extends React.Component {
     meeting: false,
     changer: true,
     redirect: false,
+    minutes: "",
   }
 
   handleClick = () => {
     this.setState({ meeting: !this.state.meeting })
   }
-  
+
   handleFinish = () => {
     let meetingData = {
       meeting_name: this.props.staticReducer.meetingName,
@@ -30,6 +31,7 @@ export class Meeting extends React.Component {
       duration: this.props.dynamic.timeElapsed,
       attendees: this.props.staticReducer.attendees.length,
       cost: this.props.dynamic.currentTotal,
+      minutes: this.state.minutes
     }
 
     let dataObj = {}
@@ -37,15 +39,24 @@ export class Meeting extends React.Component {
     dataObj.attendeesData = this.props.staticReducer.attendees
 
     saveMeeting(dataObj)
-    .then(
-      this.setState({
-        redirect: true
-      })
+      .then(
+        this.setState({
+          redirect: true
+        })
       )
-    }
-    
-    timer = () => {
-      if (this.state.meeting) {
+  }
+
+  handleNotes = (event) => {
+
+    this.setState({
+      // ...this.state.minutes,
+      [event.target.name]: event.target.value
+    })
+  
+  }
+
+  timer = () => {
+    if (this.state.meeting) {
       this.props.dispatch(tickOneSecond(this.props.staticReducer.costPerSecond))
       this.setState({
         changer: !this.state.changer
@@ -63,25 +74,28 @@ export class Meeting extends React.Component {
       this.timer()
     }, 1000)
   }
-  
+
   componentWillUnmount() {
     clearInterval(this.myTimer)
   }
-  
-  render() { 
+
+  render() {
     return (
-     <>
-      <div clssName="timer">
-        <h2 className="title is-2">{this.props.staticReducer.meetingName}</h2>
-      </div>
-      <div>
-        <h3>TIME ELAPSED: {timeDisplay(this.props.dynamic.timeElapsed)}</h3>
-        <h3>RUNNING TOTAL COST: {Math.round(this.props.dynamic.currentTotal * 100) / 100}</h3>
-      </div>
-      {this.state.meeting ? <button onClick={this.handleClick}>Pause</button> : <button onClick={this.handleClick}>Start</button>}
-      <button onClick={this.handleFinish}>Finish</button>
-      {this.state.redirect && <Redirect to="/dashboard" />}
-    </>
+      <>
+        <div className="timer">
+          <h2 className="title is-2">{this.props.staticReducer.meetingName}</h2>
+        </div>
+        <div className="meetingInfo">
+          <div>
+            <h3>TIME ELAPSED: {timeDisplay(this.props.dynamic.timeElapsed)}</h3>
+            <h3>RUNNING TOTAL COST: {Math.round(this.props.dynamic.currentTotal * 100) / 100}</h3>
+          </div>
+          <input type='text' name="minutes" onChange={(e) => this.handleNotes(e)}></input>
+        </div>
+        {this.state.meeting ? <button onClick={this.handleClick}>Pause</button> : <button onClick={this.handleClick}>Start</button>}
+        <button onClick={this.handleFinish}>Finish</button>
+        {this.state.redirect && <Redirect to="/dashboard" />}
+      </>
     )
   }
 }
