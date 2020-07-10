@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom"
 import { addStaticData } from '../actions/staticActions'
-
+import { getDecodedToken } from 'authenticare/client/auth'
 
 class CreateMeeting extends React.Component {
     state = {
@@ -14,15 +14,17 @@ class CreateMeeting extends React.Component {
         hasSubmitted: false
     }
     
+
     componentDidMount() {
         this.setState({
             arr: [],
             meetingName: '',
             name: '',
             hourlyWage: '',
-            attendees: [],
+            attendees: [{name: (getDecodedToken().first_name + " "+ getDecodedToken().last_name) , hourlyWage: getDecodedToken().hourly_wage}],
             hasSubmitted: false
         })
+        
     }
 
     handleChange = (event) => {
@@ -69,6 +71,7 @@ class CreateMeeting extends React.Component {
         document.getElementById('wageInput').value = ''
     }
 
+   
     render() {
         return (
             <>

@@ -38,7 +38,9 @@ export class App extends React.Component {
             
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            {auth.isAuthenticated ? <>
+            {auth.isAuthenticated ? console.log("auth is true") : console.log("auth is false")}
+            {/* {auth.isAuthenticated &&  <Route path='/dashboard' component={Dashboard} />} */}
+            {auth.isAuthenticated && <>
             
             
             <Route path='/dashboard' component={Dashboard} />
@@ -46,8 +48,8 @@ export class App extends React.Component {
             <Route path="/history/:id" component={History} />
             <Route path="/create" component={CreateMeeting} />
             <Route path="/graph" component={GraphWrap} />
-            </> : <Redirect to="/login" />}
-            {/* <Redirect to="/login" /> */}
+            </>}
+            
           </div>
         </div>
       </Router>
