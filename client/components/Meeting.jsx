@@ -68,10 +68,10 @@ export class Meeting extends React.Component {
     clearInterval(this.myTimer)
   }
   
-  render() {
-    
-    return <>
-      <div className="container">
+  render() { 
+    return (
+     <>
+      <div clssName="timer">
         <h2 className="title is-2">{this.props.staticReducer.meetingName}</h2>
       </div>
       <div>
@@ -82,6 +82,7 @@ export class Meeting extends React.Component {
       <button onClick={this.handleFinish}>Finish</button>
       {this.state.redirect && <Redirect to="/dashboard" />}
     </>
+    )
   }
 }
 

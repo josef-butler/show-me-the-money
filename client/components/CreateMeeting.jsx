@@ -89,48 +89,48 @@ class CreateMeeting extends React.Component {
    
     render() {
         return (
-            <>
-                <h1>Create your meeting:</h1>
-                <form>
-                    <label>Meeting Name:
-                        <input onChange={this.handleChange} type="text" name="meetingName" required></input>
-                    </label>
+            <div className="form">
+                <div className="text">
+                    <div className="content">
+                    <h1>Create your meeting:</h1>
+                        <form>
+                            <label>Meeting Name:
+                                <input onChange={this.handleChange} type="text" name="meetingName" required></input>
+                            </label>
 
-                    <p>Add Attendee:</p>
+                            <h2>Add Attendee:</h2>
 
-                    <label>First name:
-                        <input id="firstNameInput" onChange={this.handleChange} type="text" name="first_name"></input>
-                    </label>
+                            <label>Name:
+                                <input id="nameInput" onChange={this.handleChange} type="text" name="name"></input>
+                            </label>
 
-                    <label>Last name:
-                        <input id="lastNameInput" onChange={this.handleChange} type="text" name="last_name"></input>
-                    </label>
+                            <label>Hourly Wage:
+                                <input id="wageInput" onChange={this.handleChange} type="number" name="hourlyWage"></input>
+                            </label>
 
-                    <label>Hourly Wage:
-                        <input id="wageInput" onChange={this.handleChange} type="number" name="hourly_wage"></input>
-                    </label>
+                             <button onClick={this.handleAdd}>Add</button>
 
-                    <button onClick={this.handleAdd}>Add</button>
+                            <h2>Current Attendees:</h2>
+                            <ul>
+                              {this.state.attendees.map((element, i) => {
+                                  return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage} <button onClick={(event)=> {
+                                      event.preventDefault()
+                                      this.state.attendees.splice(i, 1)
+                                      this.setState({
+                                          changer: !this.state.changer
+                                      })
+                                  }}>Delete</button></li>
+                              })}
+                            </ul>
 
-                    <p>Attendees:</p>
-                    <ul>
-                        {this.state.attendees.map((element, i) => {
-                            return <li key={`attendee_${i}`}>Name: {`${element.first_name} ${element.last_name}`} Hourly Wage: {element.hourly_wage} <button onClick={(event)=> {
-                                event.preventDefault()
-                                this.state.attendees.splice(i, 1)
-                                this.setState({
-                                    changer: !this.state.changer
-                                })
-                            }}>Delete</button></li>
-                        })}
-                    </ul>
+                            <input type="submit" value="Create Meeting" onClick={this.handleSumbit}></input>
 
-                    <input type="submit" value="Create Meeting" onClick={this.handleSumbit}></input>
+                        </form>
+                        {this.state.hasSubmitted && <Redirect to="/meeting"/>}
+                    </div>
+                </div>
+            </div>
 
-                </form>
-               
-                {this.state.hasSubmitted && <Redirect to="/meeting" />}
-            </>
         )
     }
 }
