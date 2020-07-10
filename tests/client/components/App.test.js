@@ -1,7 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import {App} from '../../../client/components/App'
+import { App } from '../../../client/components/App'
+
 
 test('Title renders on App', () => {
   // Arrange
@@ -27,17 +28,17 @@ test('App has some routes when not logged in', () => {
   const actual = wrapper.find('Route').length
 
   // Assert
-  expect(actual).toEqual(expected)
+  expect(actual).toBeGreaterThan(expected)
 })
 
 test('App has one less route when logged in', () => {
   // Arrange
-  const expected = 4
+  const expected = 7
 
   // Act
   const wrapper = shallow(<App auth={{isAuthenticated: true}} dispatch={() => {}}/>)
   const actual = wrapper.find('Route').length
 
   // Assert
-  expect(actual).toEqual(expected)
+  expect(actual).toBeGreaterThan(expected)
 })

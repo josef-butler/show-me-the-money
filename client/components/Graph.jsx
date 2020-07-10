@@ -33,12 +33,18 @@ function Graph(props) {
           width: '400px',
           height: '300px'
         }}> 
-        {console.log(props.data)}
-        <div className="lefttitle">Cost</div>
+        
+
+        <div className="lefttitle" style={{
+            transform: "rotate(-90deg)",
+            margin: "00px 270px 0px -180px"
+        }}>Cost</div>
         
         <Chart data={data} axes={axes} />
 
-        <div className="bottomtitle">Time</div>
+        <div className="bottomtitle" style={{
+            textAlign: "center"
+        }}>Time</div>
       
       </div>
     )

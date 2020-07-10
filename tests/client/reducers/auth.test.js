@@ -8,7 +8,7 @@ test('Reducer intial state', () => {
     'user',
     'errorMessage',
   ]
-
+  
   // Act
   const actual = authReducer(undefined, {})
 
@@ -29,7 +29,7 @@ test('Reducer login success', () => {
 
   // Act
   const actual = authReducer(undefined, { type: 'LOGIN_SUCCESS' })
-
+    
   // Assert all properties
   expectedProperties.forEach(expectedProperty => {
     expect(actual).toHaveProperty(expectedProperty)
@@ -38,3 +38,26 @@ test('Reducer login success', () => {
   // Assert specific property value
   expect(actual.isAuthenticated).toEqual(true)
 })
+
+
+test('Reducer login fail', () => {
+  // Arrange
+  const expectedProperties  = [
+    'isFetching', 
+    'isAuthenticated',
+    'user',
+    'errorMessage',
+  ]
+  
+  // Act
+  const actual = authReducer(undefined, { type: 'LOGIN_FAILURE' })
+
+  // Assert all properties
+  expectedProperties.forEach(expectedProperty => {
+    expect(actual).toHaveProperty(expectedProperty)
+  })
+
+  // Assert specific property value
+  expect(actual.isAuthenticated).toEqual(false)
+})
+
