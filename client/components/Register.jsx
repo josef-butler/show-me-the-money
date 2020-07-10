@@ -8,6 +8,7 @@ class Register extends React.Component {
     first_name: '',
     last_name: '',
     hourly_wage: '',
+    wage: '',
     password: '',
     confirm_password: '',
     select: 'hourly',
@@ -19,6 +20,22 @@ class Register extends React.Component {
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  calculate = (e) => {
+    if (this.state.select == 'hourly') {
+      this.setState ({
+        select: 'hourly',
+        wage: e.target.value,
+        hourly_wage: e.target.value
+      })
+    } else {
+      this.setState ({
+        select: 'annually',
+        wage: e.target.value,
+        hourly_wage: e.target.value/1600
+      })
+    }
   }
 
   handleSubmit = (e) => {
@@ -52,15 +69,14 @@ class Register extends React.Component {
           </label>
           
           <label className="column is-6 label is-large has-text-centered">Wage
-            <select onChange={this.handleChange} name="select">
+            <select className="scroll" onChange={this.handleChange} name="select">
               <option value="hourly">Hourly</option>
               <option value="annually">Annually</option>
             </select>
           </label>
 
-          {/* <label className="column is-6 label is-large has-text-centered">Hourly wage
-            <input type="number"  required className="input is-large has-text-centered is-fullwidth" placeholder="Hourly wage"  name="hourly_wage" onChange={this.handleChange} value={this.state.hourly_wage}/>
-          </label> */}
+          <input type="number"  required className="input is-large has-text-centered is-fullwidth" placeholder="Income"  name="hourly_wage" onChange={this.calculate} value={this.state.wage}/>
+        
         </div>
         <br />
         <div className="columns">

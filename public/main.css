@@ -128,3 +128,9 @@ article p, ul {
 .timer h2 {
     font-size: 20px; 
 }
+
+.scroll {
+    margin: 0 0 5px 5px;
+    padding: 10px;
+    font-size: 1rem
+}
