@@ -18,6 +18,7 @@ export function getMeetings() {
       console.log("Error on getMeetings in /apis")
     )
 }
+
 export function getAll() {
   return request
     .get(rootUrl + "/all")

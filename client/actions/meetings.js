@@ -2,7 +2,7 @@ export const RECEIVE_MEETINGS = "RECEIVE_MEETINGS"
 
 import { getMeetings as apiGetMeetings } from "../apis/meetings"
 
-function receiveMeetings(meetings) {
+export function receiveMeetings(meetings) {
   return {
     type: "RECEIVE_MEETINGS",
     meetings: meetings,
@@ -10,7 +10,7 @@ function receiveMeetings(meetings) {
 }
 
 export function getMeetings() {
-  return (dispatch) => {
+  return (dispatch) => {    
     apiGetMeetings()
       .then(meetings => {
         dispatch(receiveMeetings(meetings))
