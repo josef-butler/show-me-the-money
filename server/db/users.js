@@ -29,7 +29,7 @@ function getUsers (db = connection) {
 
 function createUnregisteredUser(user, db = connection) {
   return db('users')
-    .insert(user)
+    .insert(user, 'id')
     .then(ids => ids[0])
 }
 
