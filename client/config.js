@@ -9,6 +9,6 @@ const environments = {
 
 const env = process.env.NODE_ENV || "development"
 
-console.log("setting the config to", environments[env])
+console.log("setting the config to", process.env.NODE_ENV, environments[env])
 
-export const baseApiUrl = environments[env]
+export const baseApiUrl = environments["production"]
