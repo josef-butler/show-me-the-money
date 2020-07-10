@@ -5,7 +5,7 @@ import {logoutUser} from '../actions/auth'
 
 class Nav extends React.Component {
   state = {
-    showBurger: false
+    showBurger: false,
   }
 
   toggleBurger = () => {
@@ -28,12 +28,12 @@ class Nav extends React.Component {
         </div>
         <div id="navbarMenuHeroA" className={`navbar-menu ${showBurger ? "is-active" : ''}`}>
           <div className="navbar-end">
-            { auth.isAuthenticated
+             {auth.isAuthenticated
               ? (
                 <>
-                  <Link to='/dashboard' className="navbar-item is-large">Dashboard</Link>
-                  <Link to='/create' className="navbar-item is-large">Create Meeting</Link>
-                  <Link to='/' className="navbar-item is-large" onClick={() => logout()}>Logout</Link>
+                  <Link to='/dashboard' className="navbar-item is-large" onClick={this.toggleBurger}>Dashboard</Link>
+                  <Link to='/create' className="navbar-item is-large" onClick={this.toggleBurger}>Create Meeting</Link>
+                  <Link to='/' className="navbar-item is-large" onClick={() => {logout(); this.toggleBurger()}}>Logout</Link>
                 </>
                 )
               : (

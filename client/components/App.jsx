@@ -1,6 +1,5 @@
-
 import React from 'react'
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Route, Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { checkAuth } from '../actions/auth'
 
@@ -33,17 +32,24 @@ export class App extends React.Component {
               <Nav />
             </div>
           </div>
-
+          
           <div className=''>
             {auth.isAuthenticated ?  <Route exact path="/" component={Dashboard}/> : <Route exact path="/" component={Login}/>}
-
+            
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            {auth.isAuthenticated ? console.log("auth is true") : console.log("auth is false")}
+            {/* {auth.isAuthenticated &&  <Route path='/dashboard' component={Dashboard} />} */}
+            {auth.isAuthenticated && <>
+            
+            
             <Route path='/dashboard' component={Dashboard} />
             <Route path="/meeting" component={Meeting} />
             <Route path="/history/:id" component={History} />
             <Route path="/create" component={CreateMeeting} />
             <Route path="/graph" component={GraphWrap} />
+            </>}
+            
           </div>
         </div>
       </Router>
@@ -58,3 +64,4 @@ const mapStateToProps = ({ auth }) => {
 }
 
 export default connect(mapStateToProps)(App)
+

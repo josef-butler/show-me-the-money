@@ -37,16 +37,14 @@ td:hover {
 }
 
 .button {
-    display: flex;
-    margin-top: 35px
-}
+    display: flex;}
 
 .button button{
     justify-content: space-between;
     font-size: large;
     width: 150px;
+    margin: 35px 10%;
     height: auto;
-    margin: 10%;
     padding: 0.7em 1.7em;
     border-radius: 0.2em;
     box-sizing: border-box;
@@ -54,9 +52,9 @@ td:hover {
     font-family: 'Roboto',sans-serif;
     font-weight: 400;
     color: #FFFFFF;
-    background-color: #3369ff;
-    box-shadow: inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+    background-color: #00d1b2;
     text-align: center;
+    cursor: pointer;
 }
 
 article p, ul {
@@ -79,4 +77,54 @@ article p, ul {
 .blue-odd {
     padding: 10px 0;
     background-color: rgba(86, 178, 235, 0.616);
+}
+
+.form {
+    display: flex;
+    background-color: rgba(125, 194, 236, 0.605);
+    width: 100%;
+    max-width: 650px;
+    margin: 100px auto;
+    border-radius: 10px
+}
+
+.text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text h1 {
+    font-size: 30px; 
+}
+
+.text h2 {
+    font-size: 20px; 
+    margin: 10px 0;
+}
+
+.content {
+    margin: 20px;
+}
+
+.content label {
+    margin: 10px; 
+}
+
+.content input {
+    padding: 5px;
+    margin: auto 10px;
+}
+
+.timer {
+    text-align: center;
+    margin: 100px auto;
+    border: 1px solid;
+}
+
+.timer h2 {
+    font-size: 30px; 
+}
+
+.timer h2 {
+    font-size: 20px; 
 }
