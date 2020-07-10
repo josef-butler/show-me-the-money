@@ -14,6 +14,7 @@ class CreateMeeting extends React.Component {
         attendees: [],
         hasSubmitted: false,
         changer: true,
+        maxMeetingTime: ''
     }
     
 
@@ -24,6 +25,7 @@ class CreateMeeting extends React.Component {
                 hourly_wage: getDecodedToken().hourly_wage,
             id: getDecodedToken().id}],
             meetingName: '',
+            maxMeetingTime: '',
 
             first_name: '',
             last_name: '',
@@ -58,7 +60,8 @@ class CreateMeeting extends React.Component {
             attendees: this.state.attendees,
             meetingName: this.state.meetingName,
             startTime: new Date().toLocaleString(),
-            costPerSecond: this.cpsCalc()
+            costPerSecond: this.cpsCalc(),
+            maxMeetingTime: this.state.maxMeetingTime
         }
         event.preventDefault()
         this.props.dispatch(addStaticData(obj))
@@ -96,6 +99,11 @@ class CreateMeeting extends React.Component {
                         <form>
                             <label>Meeting Name:
                                 <input onChange={this.handleChange} type="text" name="meetingName" required></input>
+                            </label>
+                            <br>
+                            </br>
+                            <label>Max meeting time:
+                                <input onChange={this.handleChange} type="number" name="maxMeetingTime" required></input>
                             </label>
 
                             <h2>Add Attendee:</h2>
