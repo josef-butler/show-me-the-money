@@ -74,6 +74,7 @@ export class History extends React.Component {
                   <strong>Cost: ${Math.round(meeting.cost * 100) / 100}</strong>
                 </p>
               </div>
+                <p>Minutes: {meeting.minutes}</p>
             </div>
           </article>
         </section>
