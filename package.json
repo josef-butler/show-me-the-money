@@ -9,7 +9,7 @@
     "watch:client": "webpack --watch",
     "watch:server": "nodemon --watch server",
     "start": "run-s build server",
-    "server":"node server",
+    "server": "node server",
     "test": "jest --noStackTrace --watchAll",
     "build": "webpack && knex migrate:latest",
     "h:deploy": "git push heroku master",
