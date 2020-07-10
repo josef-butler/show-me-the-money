@@ -14,13 +14,10 @@ class GraphWrap extends React.Component {
 
     componentDidMount() {
        
-        console.log( (new Date(1591575018000)).toLocaleDateString())
-       // getAll().then(data => console.log("data is ", data.data))
-    //    this.setState({
-    //       meetingdata: getAll().then(data => data.data.filter(elem=>{console.log( {x: elem.time, y: elem.cost }  )}))
-    //    })
+       
+   
         getAll().then(data => {
-            console.log(data);
+         
             let meeting = []
                 data.data.map(elem=>{
                     meeting.push({x: (new Date(elem.time)).toLocaleDateString(), y: elem.cost})
