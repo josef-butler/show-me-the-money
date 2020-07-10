@@ -7,7 +7,7 @@ import MeetingEntry from './MeetingEntry'
 
 class Dashboard extends React.Component {
     componentDidMount() {
-        this.props.dispatch(getMeetings())
+        setTimeout(this.props.dispatch(getMeetings()),30)
     }
 
     handleClick = (e) => {
