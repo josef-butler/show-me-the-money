@@ -71,7 +71,7 @@ export class History extends React.Component {
               </div>
               <div className="blue-even">
                 <p>
-                  <strong>Cost: ${meeting.cost}0</strong>
+                  <strong>Cost: ${Math.round(meeting.cost * 100) / 100}</strong>
                 </p>
               </div>
             </div>

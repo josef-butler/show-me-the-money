@@ -10,7 +10,7 @@ const MeetingEntry = (props) => {
             <td>{props.meeting.meeting_name}</td>
             <td>{timeDisplay(props.meeting.duration)}</td>
             <td>{props.meeting.attendees}</td>
-            <td>{`$${props.meeting.cost}`}</td>
+            <td>{`$${Math.round(props.meeting.cost * 100) / 100}`}</td>
         </tr>
     )
 }
