@@ -19,14 +19,20 @@ class CreateMeeting extends React.Component {
 
     componentDidMount() {
         this.setState({
-            arr: [],
+            arr: [{first_name: getDecodedToken().first_name, 
+                last_name: getDecodedToken().last_name, 
+                hourly_wage: getDecodedToken().hourly_wage,
+            id: getDecodedToken().id}],
             meetingName: '',
 
             first_name: '',
             last_name: '',
             hourly_wage: '',
 
-            attendees: [{name: (getDecodedToken().first_name + " "+ getDecodedToken().last_name) , hourlyWage: getDecodedToken().hourly_wage}],
+            attendees: [{first_name: getDecodedToken().first_name, 
+                last_name: getDecodedToken().last_name, 
+                hourly_wage: getDecodedToken().hourly_wage,
+                id: getDecodedToken().id}],
 
             hasSubmitted: false
         })

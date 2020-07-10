@@ -42,13 +42,15 @@ router.get("/:id/users", (req, res) => {
 router.post("/", getTokenDecoder(), (req, res) => {
     console.log("create meeting recived ", req.body)
     let meetingCreatorId = req.user.id
+    let attendeeArr = req.body.attendeesData
 
     db.saveMeeting(req.body.meetingData)
         .then(meetingId => {
             let newMeetingId = meetingId
+            let unregisteredAttendees = attendeeArr.filter(element => element.id != meetingCreatorId)
 
-            for (let i = 0; i < req.body.attendeesData.length; i++) {
-                let user = req.body.attendeesData[i]
+            for (let i = 0; i < unregisteredAttendees.length; i++) {
+                let user = unregisteredAttendees[i]
                 usersDb.createUnregisteredUser(user)
                     .then((userId) => {
                         let userObj = {
@@ -59,11 +61,13 @@ router.post("/", getTokenDecoder(), (req, res) => {
                             .then(() => console.log("yay"))
                     })
             }
-            
+            let creator = attendeeArr.find(element => element.id == meetingCreatorId)
+            if(creator != undefined){
             attendeesDb.saveAttendees({
                 meeting_id: newMeetingId,
                 user_id: meetingCreatorId
             })
+        }
         })
         .catch(err => {
             res.status(500).send("it broke :/")
