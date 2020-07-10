@@ -38,7 +38,7 @@ export class App extends React.Component {
             
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            {auth.isAuthenticated ? console.log("auth is true") : console.log("auth is false")}
+            
             {/* {auth.isAuthenticated &&  <Route path='/dashboard' component={Dashboard} />} */}
             {auth.isAuthenticated && <>
             

@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
         // case ADD_COST_PER_SECOND:
         //     return [...state, action.costPerSecond]
         case ADD_STATE:
-            // console.log('here', action)
+           
             return action.data
         default:
             return state

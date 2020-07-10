@@ -33,7 +33,7 @@ function Graph(props) {
           width: '400px',
           height: '300px'
         }}> 
-        {console.log(props.Data)}
+        
 
         <div className="lefttitle" style={{
             transform: "rotate(-90deg)",
