@@ -100,12 +100,16 @@ class CreateMeeting extends React.Component {
 
                             <h2>Add Attendee:</h2>
 
-                            <label>Name:
-                                <input id="nameInput" onChange={this.handleChange} type="text" name="name"></input>
+                            <label>First Name:
+                                <input id="firstNameInput" onChange={this.handleChange} type="text" name="first_name"></input>
+                            </label>
+                            
+                            <label> Last Name:
+                                <input id="lastNameInput" onChange={this.handleChange} type="text" name="last_name"></input>
                             </label>
 
                             <label>Hourly Wage:
-                                <input id="wageInput" onChange={this.handleChange} type="number" name="hourlyWage"></input>
+                                <input id="wageInput" onChange={this.handleChange} type="number" name="hourly_wage"></input>
                             </label>
 
                              <button onClick={this.handleAdd}>Add</button>
@@ -113,7 +117,7 @@ class CreateMeeting extends React.Component {
                             <h2>Current Attendees:</h2>
                             <ul>
                               {this.state.attendees.map((element, i) => {
-                                  return <li key={element.name}>Name: {element.name} Hourly Wage: {element.hourlyWage} <button onClick={(event)=> {
+                                  return <li key={element.name}>Name: {element.first_name + ' ' + element.last_name} Hourly Wage: {element.hourly_wage} <button onClick={(event)=> {
                                       event.preventDefault()
                                       this.state.attendees.splice(i, 1)
                                       this.setState({
