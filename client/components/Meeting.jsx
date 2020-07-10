@@ -11,7 +11,6 @@ export const timeDisplay = (seconds) => {
   return (`${h}`+`:${m}`+`:${s}`)
 }
 
-
 export class Meeting extends React.Component {
 
   state = {
@@ -20,8 +19,6 @@ export class Meeting extends React.Component {
     redirect: false,
   }
 
-  
-  
   handleClick = () => {
     this.setState({ meeting: !this.state.meeting })
   }
@@ -34,7 +31,12 @@ export class Meeting extends React.Component {
       attendees: this.props.staticReducer.attendees.length,
       cost: this.props.dynamic.currentTotal,
     }
-    saveMeeting(meetingData)
+
+    let dataObj = {}
+    dataObj.meetingData = meetingData
+    dataObj.attendeesData = this.props.staticReducer.attendees
+
+    saveMeeting(dataObj)
     .then(
       this.setState({
         redirect: true

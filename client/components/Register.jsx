@@ -23,6 +23,7 @@ class Register extends React.Component {
     e.preventDefault()
     e.target.reset()
     let {username, password, confirm_password, first_name, last_name, hourly_wage} = this.state
+    if (hourly_wage < 18) window.location.replace("https://www.seek.co.nz/web-developer-jobs-in-information-communication-technology/in-All-Wellington?salaryrange=60000-999999&salarytype=annual");
     if (confirm_password != password) return this.props.dispatch(loginError("Passwords don't match"))
     const confirmSuccess = () => { this.props.history.push('/') }
     this.props.dispatch(registerUserRequest({username, password, first_name, last_name, hourly_wage}, confirmSuccess))
@@ -46,7 +47,7 @@ class Register extends React.Component {
             <input required className="input is-large has-text-centered is-fullwidth" placeholder="Last Name" type="text" name="last_name" onChange={this.handleChange} value={this.state.last_name}/>
           </label>
           <label className="column is-6 label is-large has-text-centered">Hourly wage
-            <input required className="input is-large has-text-centered is-fullwidth" placeholder="Hourly wage" type="text" name="hourly_wage" onChange={this.handleChange} value={this.state.hourly_wage}/>
+            <input type="number"  required className="input is-large has-text-centered is-fullwidth" placeholder="Hourly wage"  name="hourly_wage" onChange={this.handleChange} value={this.state.hourly_wage}/>
           </label>
         </div>
         <br />
