@@ -84,7 +84,7 @@ article p, ul {
     background-color: rgba(125, 194, 236, 0.605);
     width: 100%;
     max-width: 650px;
-    margin: 50px auto;
+    margin: 100px auto;
     border-radius: 10px
 }
 
@@ -113,4 +113,18 @@ article p, ul {
 .content input {
     padding: 5px;
     margin: auto 10px;
+}
+
+.timer {
+    text-align: center;
+    margin: 100px auto;
+    border: 1px solid;
+}
+
+.timer h2 {
+    font-size: 30px; 
+}
+
+.timer h2 {
+    font-size: 20px; 
 }

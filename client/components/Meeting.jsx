@@ -25,18 +25,15 @@ class Meeting extends React.Component {
   }
   
   render() {
-    return <>
-      <div className="container">
-        <h2 className="title is-2">{this.props.staticReducer.meetingName}</h2>
+    return (
+      <div clssName="timer">
+          <h2>{this.props.staticReducer.meetingName}</h2>
+          <h3>TIME ELAPSED:  {this.props.dynamic.timeElapsed}</h3>
+          <h3>RUNNING TOTAL COST:  {this.props.dynamic.currentTotal}</h3>
+        {/* <button onClick={this.handleClick}>finish</button> */}
+        {this.state.meeting ? <button onClick={this.handleClick}>finish</button>: <button onClick={this.handleClick}>Begin</button> }
       </div>
-      <div>
-  <h3>TIME ELAPSED: {this.props.dynamic.timeElapsed}</h3>
-        <h3>RUNNING TOTAL COST: {this.props.dynamic.currentTotal} </h3>
-      </div>
-      {/* <button onClick={this.handleClick}>finish</button> */}
-      {this.state.meeting ? <button onClick={this.handleClick}>finish</button>: <button onClick={this.handleClick}>Begin</button> }
-
-    </>
+    )
   }
 }
 
