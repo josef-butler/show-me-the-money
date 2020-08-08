@@ -4,8 +4,6 @@ Meetings are expensive, but sometimes we forget how expensive they are and feel 
 
 This is an app to display the real-time costs of meetings, and track the costs of your meetings over time. Calculations are made based on the hourly wages of meeting attendees.
 
-https://show-me-the-monaay.herokuapp.com/#/
-
 This app uses:
 
 - React
